@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label>
+        <input id="review" type="text">
+    </label>
+    <button id="button" type="submit">Submit</button>
+    <p id="svm_value"></p> <br>
+    <p id="dt_value"></p>
+</form>
+</body>
+<script>
+    document.getElementById("button").addEventListener('click', function (event) {
+        event.preventDefault()
+        const review = document.getElementById("review").value
+        const data = {review: review}
+        fetch('http://127.0.0.1:8000/classifier/classify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById("svm_value").innerHTML = "SVM: "+data.svm_rating
+                document.getElementById("dt_value").innerHTML = "DT: "+data.decision_tree_rating
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    })
+</script>
+</html>
