@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+html {
+  background-color: #ebebeb;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+}
+
+body,
+html {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline dashed;
+  text-underline-offset: 12px;
+  color: #205375;
+}
+
+.input-container {
+  display: grid;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+}
+
+input {
+  border-radius: 5px;
+  padding: 8px 14px;
+  outline: none;
+  border: 2px solid gray;
+  font-family: "Poppins" !important;
+  width: 500px;
+}
+
+button {
+  background-color: #0096ff;
+  color: white;
+  padding: 8px 20px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-family: "Poppins" !important;
+  cursor: pointer;
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+}
+
+td,
+th {
+  padding: 10px 30px;
+  text-align: left;
+}
+
+tr:nth-child(odd) {
+  background-color: #e8f9fd;
+}
+
+tr:nth-child(even) {
+  background-color: #c4ddff;
+}
