@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="./styles.css" />
-    <meta charset="UTF-8" />
-    <title>Title</title>
-  </head>
-  <body>
-    <h1>Review</h1>
-    <form>
-      <div class="input-container">
+<head>
+    <link rel="stylesheet" href="./styles.css"/>
+    <meta charset="UTF-8"/>
+    <title>SIN Project</title>
+</head>
+<body>
+<h1>Review</h1>
+<form>
+    <div class="input-container">
         <label name="text-input">
-          <input id="review" type="text" />
+            <input id="review" type="text"/>
         </label>
         <button id="button" type="submit">Submit</button>
-      </div>
-      <table>
+    </div>
+    <table>
         <tr>
-          <th>Metric</th>
-          <th>Value</th>
+            <th>Metric</th>
+            <th>Value</th>
         </tr>
         <tr>
-          <td>SVM Value</td>
-          <td id="svm_value">3</td>
+            <td>SVM Value</td>
+            <td id="svm_value">3</td>
         </tr>
         <tr>
-          <td>DT Value</td>
-          <td id="dt_value">4</td>
+            <td>DT Value</td>
+            <td id="dt_value">4</td>
         </tr>
-      </table>
-    </form>
-  </body>
-  <script>
+    </table>
+</form>
+</body>
+<script>
     document
-      .getElementById("button")
-      .addEventListener("click", function (event) {
-        event.preventDefault();
-        const review = document.getElementById("review").value;
-        const data = { review: review };
-        fetch("http://127.0.0.1:8000/classifier/classify", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            document.getElementById("svm_value").innerHTML = data.svm_rating;
-            document.getElementById("dt_value").innerHTML = data.decision_tree_rating;
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      });
-  </script>
+        .getElementById("button")
+        .addEventListener("click", function (event) {
+            event.preventDefault();
+            const review = document.getElementById("review").value;
+            const data = {review: review};
+            fetch("http://127.0.0.1:8000/classifier/classify", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    document.getElementById("svm_value").innerHTML = data.svm_rating;
+                    document.getElementById("dt_value").innerHTML = data.decision_tree_rating;
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        });
+</script>
 </html>
