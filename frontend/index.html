@@ -46,10 +46,8 @@
         })
           .then((response) => response.json())
           .then((data) => {
-            document.getElementById("svm_value").innerHTML =
-              "SVM: " + data.svm_rating;
-            document.getElementById("dt_value").innerHTML =
-              "DT: " + data.decision_tree_rating;
+            document.getElementById("svm_value").innerHTML = data.svm_rating;
+            document.getElementById("dt_value").innerHTML = data.decision_tree_rating;
           })
           .catch((error) => {
             console.error("Error:", error);
